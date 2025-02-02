@@ -14,36 +14,16 @@ public class GildedRose
         _itemDictionary = new Dictionary<Item, IItemQualityAdapter>();
         foreach (var item in Items)
         {
-            _itemDictionary[item] = AdapterFor(item);
-        }
-    }
-
-    public IItemQualityAdapter AdapterFor(Item item)
-    {
-        if (item.Name == "Sulfuras, Hand of Ragnaros")
-        {
-            return new LegendaryItemAdapter(item);
-        }
-        else if (item.Name == "Aged Brie")
-        {
-            return new AgedItemAdapter(item);
-        }
-        else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-        {
-            return new TimeSensitiveItemAdapter(item);
-        }
-        else
-        {
-            return new NormalItemAdapter(item);
+            _itemDictionary[item] = AdapterFactory.AdapterFor(item);
         }
     }
 
     public void UpdateQuality()
     {
-        foreach (var item in _itemDictionary)
+        foreach (var item in _itemDictionary.Values)
         {
-            item.Value.ApplyQualityRules();
-            item.Value.UpdateSellIn();
+            item.ApplyQualityRules();
+            item.UpdateSellIn();
         };
     }
 }

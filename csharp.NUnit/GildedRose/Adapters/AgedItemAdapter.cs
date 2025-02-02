@@ -1,12 +1,8 @@
 ﻿namespace GildedRoseKata.Adapters;
 
-public class AgedItemAdapter : StockItem
+public class AgedItemAdapter(Item item) : StockItem(item)
 {
-    private readonly Item _item;
-    public AgedItemAdapter(Item item) : base(item)
-    {
-        _item = item;
-    }
+    private readonly Item _item = item;
 
     public override void ApplyQualityRules()
     {

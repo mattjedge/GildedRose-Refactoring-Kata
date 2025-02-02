@@ -1,13 +1,7 @@
 ﻿namespace GildedRoseKata.Adapters;
 
-public class LegendaryItemAdapter : StockItem
+public class LegendaryItemAdapter(Item item) : StockItem(item)
 {
-    private readonly Item _item;
-    public LegendaryItemAdapter(Item item) : base(item)
-    {
-        _item = item;
-    }
-
     public override void ApplyQualityRules()
     {
         // No degradation for Legendary items

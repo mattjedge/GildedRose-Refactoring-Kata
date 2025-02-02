@@ -1,12 +1,8 @@
 ﻿namespace GildedRoseKata.Adapters;
 
-public class TimeSensitiveItemAdapter : StockItem
+public class TimeSensitiveItemAdapter(Item item) : StockItem(item)
 {
-    private readonly Item _item;
-    public TimeSensitiveItemAdapter(Item item) : base(item)
-    {
-        _item = item;
-    }
+    private readonly Item _item = item;
 
     public override void ApplyQualityRules()
     {
