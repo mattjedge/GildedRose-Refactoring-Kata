@@ -81,7 +81,6 @@ public class GildedRoseTest
         Assert.That(items[0].Quality, Is.EqualTo(quality));
     }
 
-    // boo
     [Test]
     public void UpdateQuality_reduces_SellIn()
     {
@@ -98,5 +97,16 @@ public class GildedRoseTest
         var app = new GildedRose(items);
         app.UpdateQuality();
         Assert.That(items[0].Quality, Is.EqualTo(80));
+    }
+
+    [TestCase(2, 8)]
+    [TestCase(-2, 6)]
+    public void Update_quality_degrades_conjured_items_twice_as_fast(int sellIn, int expectedQuality)
+    {
+        var items = new List<Item> { new Item { Name = "Conjured teapot", SellIn = sellIn, Quality = 10 } };
+        var app = new GildedRose(items);
+        app.UpdateQuality();
+        Assert.That(items[0].Quality, Is.EqualTo(expectedQuality));
+
     }
 }
