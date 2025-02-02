@@ -8,12 +8,12 @@
         {
             if (_item.SellIn > 0)
             {
-                _item.Quality -= 2;
+                _item.DecreaseQualityBy(2);
             }
 
             if (_item.SellIn <= 0)
             {
-                _item.Quality -= 4;
+                _item.DecreaseQualityBy(4);
             }
         }
     }

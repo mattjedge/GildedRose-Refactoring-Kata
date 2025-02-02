@@ -12,13 +12,11 @@ public abstract class StockItem : IItemQualityAdapter
     }
     public virtual void ApplyQualityRules()
     {
-        if (_item.Quality > 0)
+        _item.DecreaseQualityBy(1);
+
+        if (_item.SellIn <= 0)
         {
-            _item.Quality -= 1;
-        }
-        if (_item.Quality > 0 && _item.SellIn <= 0)
-        {
-            _item.Quality -= 1;
+            _item.DecreaseQualityBy(1);
         }
     }
 

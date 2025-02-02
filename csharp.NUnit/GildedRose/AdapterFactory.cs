@@ -3,7 +3,7 @@
 namespace GildedRoseKata;
 
 public static class AdapterFactory
-{  
+{
     public static IItemQualityAdapter AdapterFor(Item item)
     {
         switch (item.Name)
@@ -14,7 +14,7 @@ public static class AdapterFactory
                 return new AgedItemAdapter(item);
             case "Backstage passes to a TAFKAL80ETC concert":
                 return new TimeSensitiveItemAdapter(item);
-            case "Conjured teapot":
+            case "Conjured Mana Cake":
                 return new ConjuredItemAdapter(item);
             default:
                 return new NormalItemAdapter(item);

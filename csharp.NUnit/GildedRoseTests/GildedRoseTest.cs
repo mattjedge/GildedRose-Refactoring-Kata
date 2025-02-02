@@ -103,7 +103,7 @@ public class GildedRoseTest
     [TestCase(-2, 6)]
     public void Update_quality_degrades_conjured_items_twice_as_fast(int sellIn, int expectedQuality)
     {
-        var items = new List<Item> { new Item { Name = "Conjured teapot", SellIn = sellIn, Quality = 10 } };
+        var items = new List<Item> { new Item { Name = "Conjured Mana Cake", SellIn = sellIn, Quality = 10 } };
         var app = new GildedRose(items);
         app.UpdateQuality();
         Assert.That(items[0].Quality, Is.EqualTo(expectedQuality));

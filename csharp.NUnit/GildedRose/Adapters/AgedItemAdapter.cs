@@ -6,9 +6,10 @@ public class AgedItemAdapter(Item item) : StockItem(item)
 
     public override void ApplyQualityRules()
     {
-        if (_item.Quality < 50)
+        _item.IncreaseQualityBy(1);
+        if (_item.SellIn < 0)
         {
-            _item.Quality += 1;
+            _item.IncreaseQualityBy(1);
         }
     }
 }
